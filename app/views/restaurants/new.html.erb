@@ -1,0 +1,16 @@
+<br>
+<br>
+<br>
+<br>
+
+<h1>Create restaurant</h1>
+  <%= simple_form_for(@restaurant) do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category %>
+
+    <%= f.button :submit %>
+  <% end %>

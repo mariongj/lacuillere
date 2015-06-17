@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<br>
+
+<% content_for(:title) do %>
+  <%= @restaurant.name %> is on La Cuillere
+<% end %>
+
+<h1><%= @restaurant.name %></h1>
+<p>Address: <%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<p>Category: <%= @restaurant.category %></p>
+<p><strong>Reviews:</strong></p>
+<% @restaurant.reviews.each do |review| %>
+  <ul>
+    <li><%= "#{review.rating}/5 - '#{review.content}'" %></li>
+  </ul>
+<% end %>
+<br>
+
+
+<p><%= link_to "Back to Homepage", restaurants_path %></p>
+
+<h2>Add a review</h2>
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :content %>
+    <%= f.input :rating %>
+
+    <%= f.submit "Add a review" %>
+  <% end %>
